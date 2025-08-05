@@ -8,8 +8,8 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+     // GitHub: "https://github.com/jackyzha0/quartz",
+      //"Discord Community": "https://discord.gg/cRFFHYye7t",
     },
   }),
 }
@@ -39,6 +39,18 @@ export const defaultContentPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer(),
+    Component.RecentNotes({
+      title: "Recent Writing",
+      limit: 5,
+      filter: (file) => file.slug!.startsWith("posts/"),
+      linkToMore: "posts" as SimpleSlug,
+    }),
+    Component.RecentNotes({
+      title: "Recent Notes",
+      limit: 5,
+      filter: (file) => file.slug!.startsWith("notes/"),
+      linkToMore: "notes" as SimpleSlug,
+    }),
   ],
   right: [
     Component.Graph(),
