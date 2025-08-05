@@ -1,5 +1,6 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
+import rehypeExternalLinks from "rehype-external-links"
 
 /**
  * Quartz 4 Configuration
@@ -66,8 +67,16 @@ const config: QuartzConfig = {
         },
         keepBackground: false,
       }),
-      Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
-      Plugin.GitHubFlavoredMarkdown(),
+      Plugin.ObsidianFlavoredMarkdown({
+        rehypePlugins: [
+          [rehypeExternalLinks, { target: "_blank", rel: "noopener noreferrer" }],
+        ],
+      }),
+      Plugin.GitHubFlavoredMarkdown({
+        rehypePlugins: [
+          ["rehype-external-links", { target: "_blank", rel: "noopener noreferrer" }],
+        ],
+      }),
       Plugin.TableOfContents(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),

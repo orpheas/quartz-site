@@ -552,6 +552,10 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
     htmlPlugins() {
       const plugins: PluggableList = [rehypeRaw]
 
+      if (opts.rehypePlugins) {
+        plugins.push(...opts.rehypePlugins)
+      }
+
       if (opts.parseBlockReferences) {
         plugins.push(() => {
           const inlineTagTypes = new Set(["p", "li"])
