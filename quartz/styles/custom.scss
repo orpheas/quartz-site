@@ -1,3 +1,17 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+
+// Force light mode - override dark mode colors
+:root[saved-theme="dark"] {
+  --light: #f5f2e8;
+  --lightgray: #e0dcd3;
+  --gray: #b8b8b8;
+  --darkgray: #4e4e4e;
+  --dark: #2b2b2b;
+  --secondary: #284b63;
+  --tertiary: #84a59d;
+  --highlight: rgba(143, 159, 169, 0.15);
+  --textHighlight: #fff23688;
+  color-scheme: light;
+}

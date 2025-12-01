@@ -33,12 +33,9 @@ export const defaultContentPageLayout: PageLayout = {
         {
           Component: Component.Search(),
           grow: true,
-        },
-        { Component: Component.Darkmode() },
-        { Component: Component.ReaderMode() },
+        }
       ],
     }),
-    Component.Explorer(),
     Component.RecentNotes({
       title: "Recent Writing",
       limit: 5,
@@ -71,7 +68,6 @@ export const defaultListPageLayout: PageLayout = {
           Component: Component.Search(),
           grow: true,
         },
-        { Component: Component.Darkmode() },
       ],
     }),
     Component.Explorer(),

@@ -38,6 +38,9 @@ export default (() => {
 
     return (
       <head>
+        <script dangerouslySetInnerHTML={{
+          __html: `document.documentElement.setAttribute("saved-theme", "light"); localStorage.setItem("theme", "light");`
+        }} />
         <title>{title}</title>
         <meta charSet="utf-8" />
         {cfg.theme.cdnCaching && cfg.theme.fontOrigin === "googleFonts" && (
