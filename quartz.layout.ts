@@ -36,18 +36,18 @@ export const defaultContentPageLayout: PageLayout = {
         }
       ],
     }),
-    Component.RecentNotes({
+    Component.DesktopOnly(Component.RecentNotes({
       title: "Recent Writing",
       limit: 5,
       filter: (file) => file.slug!.startsWith("posts/"),
       linkToMore: "posts" as SimpleSlug,
-    }),
-    Component.RecentNotes({
+    })),
+    Component.DesktopOnly(Component.RecentNotes({
       title: "Recent Notes",
       limit: 5,
       filter: (file) => file.slug!.startsWith("notes/"),
       linkToMore: "notes" as SimpleSlug,
-    }),
+    })),
   ],
   right: [
     Component.DesktopOnly(Component.TableOfContents()),
