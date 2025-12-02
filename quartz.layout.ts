@@ -5,7 +5,21 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    // Show Recent Writing and Recent Notes at bottom on mobile only
+    Component.MobileOnly(Component.RecentNotes({
+      title: "Recent Writing",
+      limit: 5,
+      filter: (file) => file.slug!.startsWith("posts/"),
+      linkToMore: "posts" as SimpleSlug,
+    })),
+    Component.MobileOnly(Component.RecentNotes({
+      title: "Recent Notes",
+      limit: 5,
+      filter: (file) => file.slug!.startsWith("notes/"),
+      linkToMore: "notes" as SimpleSlug,
+    })),
+  ],
   footer: Component.Footer({
     links: {
      // GitHub: "https://github.com/jackyzha0/quartz",
